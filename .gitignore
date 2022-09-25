@@ -1,12 +1,10 @@
-.DS_Store
-.swiftpm
-.build/
-/Packages
 /*.xcodeproj
 xcuserdata/
 
+.swiftpm
+.build/
 .theos
-/packages
+theos
 .theos/
 packages/
 .DS_Store
