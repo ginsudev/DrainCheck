@@ -23,7 +23,7 @@ struct AboutScreen: View {
         
         let developer = Creator(name: "Noah", developerName: "Ginsu", twitterHandle: "ginsudev", role: "Developer")
         
-        let designer = Creator(name: "Baxter", developerName: "Bank5ia", twitterHandle: "bank5ia", role: "App designer")
+        let designer = Creator(name: "Baxter", developerName: "Bank5ia", twitterHandle: "bank5ia", role: "App & icon designer")
         
         arr.append(developer)
         arr.append(designer)

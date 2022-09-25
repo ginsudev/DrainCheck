@@ -23,9 +23,4 @@ struct LogGroup: Identifiable {
     var id = UUID()
     var logs = [Log]()
     var date: String
-    
-    mutating func reset() {
-        logs.removeAll()
-        date = ""
-    }
 }
