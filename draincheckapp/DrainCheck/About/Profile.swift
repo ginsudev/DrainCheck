@@ -26,7 +26,8 @@ struct Profile: View {
                 
                 Spacer()
                 
-                Image(systemName: "plus")
+                Image(systemName: "person.crop.circle.badge.plus")
+                    .foregroundColor(Color(UIColor.secondaryLabel))
             }
         }
         .padding(.vertical)

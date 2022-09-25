@@ -18,7 +18,10 @@ struct ResultsBox: View {
     
     var body: some View {
         VStack {
-            Text(Image(systemName: imageNameForGain())).foregroundColor(colourForGain()) + Text(" \(battery)%")
+            HStack {
+                Text(Image(systemName: imageNameForGain())) + Text(" \(battery)%")
+            }
+            .foregroundColor(colourForGain())
             
             ZStack(alignment: .center) {
                 VisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))

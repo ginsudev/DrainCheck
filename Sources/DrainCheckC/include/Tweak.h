@@ -2,14 +2,15 @@
 #import <UIKit/UIKit.h>
 
 @interface CCUIToggleModule : NSObject
+- (void)refreshState;
 @end
 
 @interface CCUIModuleInstance : NSObject
+@property (nonatomic,readonly) CCUIToggleModule *module;
 @end
 
 @interface CCUIModuleInstanceManager : NSObject
 + (instancetype)sharedInstance;
-- (void)_updateModuleInstances;
 - (CCUIModuleInstance*)instanceForModuleIdentifier:(NSString*)moduleIdentifier;
 @end
 

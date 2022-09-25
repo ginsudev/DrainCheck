@@ -32,6 +32,11 @@ struct LogList: View {
                     }
                 }
             }
+            .overlay(Group {
+                if (logs ?? [LogGroup]()).isEmpty {
+                    EmptyListView()
+                }
+            })
         }
         .onChange(of: scenePhase, perform: { newValue in
             if newValue == .active {

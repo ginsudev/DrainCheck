@@ -18,6 +18,7 @@
 		4F4C2F7928DF3423004A961A /* ProfilePicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C2F6F28DF3423004A961A /* ProfilePicture.swift */; };
 		4F4C2F7C28DFC9DA004A961A /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C2F7B28DFC9DA004A961A /* SettingsScreen.swift */; };
 		4F4C2F7F28DFCA1D004A961A /* DrainCheckPrefsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C2F7E28DFCA1D004A961A /* DrainCheckPrefsViewController.m */; };
+		4FCB3D9328E0511F004220D4 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCB3D9228E0511F004220D4 /* EmptyListView.swift */; };
 		4FEBF34F28DEAFD10017EC32 /* DrainCheckApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEBF34E28DEAFD10017EC32 /* DrainCheckApp.swift */; };
 		4FEBF35328DEAFD20017EC32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FEBF35228DEAFD20017EC32 /* Assets.xcassets */; };
 		4FEBF35628DEAFD20017EC32 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FEBF35528DEAFD20017EC32 /* Preview Assets.xcassets */; };
@@ -38,6 +39,7 @@
 		4F4C2F7D28DFCA1C004A961A /* DrainCheck-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DrainCheck-Bridging-Header.h"; sourceTree = "<group>"; };
 		4F4C2F7E28DFCA1D004A961A /* DrainCheckPrefsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrainCheckPrefsViewController.m; sourceTree = "<group>"; };
 		4F4C2F8028DFCA30004A961A /* DrainCheckPrefsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrainCheckPrefsViewController.h; sourceTree = "<group>"; };
+		4FCB3D9228E0511F004220D4 /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		4FEBF34B28DEAFD10017EC32 /* DrainCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrainCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEBF34E28DEAFD10017EC32 /* DrainCheckApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrainCheckApp.swift; sourceTree = "<group>"; };
 		4FEBF35228DEAFD20017EC32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				4F4C2F6328DF3423004A961A /* LogList.swift */,
+				4FCB3D9228E0511F004220D4 /* EmptyListView.swift */,
 				4F4C2F6428DF3423004A961A /* Log.swift */,
 				4F4C2F6528DF3423004A961A /* Row */,
 			);
@@ -213,6 +216,7 @@
 			files = (
 				4FEBF35D28DEB7FD0017EC32 /* DataHandler.swift in Sources */,
 				4F4C2F7728DF3423004A961A /* Creator.swift in Sources */,
+				4FCB3D9328E0511F004220D4 /* EmptyListView.swift in Sources */,
 				4FEBF34F28DEAFD10017EC32 /* DrainCheckApp.swift in Sources */,
 				4F4C2F7928DF3423004A961A /* ProfilePicture.swift in Sources */,
 				4F4C2F7C28DFC9DA004A961A /* SettingsScreen.swift in Sources */,

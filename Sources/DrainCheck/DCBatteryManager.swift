@@ -50,7 +50,12 @@ final class DCBatteryManager: NSObject {
         }
         
         preferences?.isEnabled = enabled
-        CCUIModuleInstanceManager.sharedInstance()._updateModuleInstances()
+
+        DispatchQueue.main.async {
+            if let moduleInstance = CCUIModuleInstanceManager.sharedInstance().instance(forModuleIdentifier: "com.ginsu.draincheckcc") {
+                moduleInstance.module.refreshState()
+            }
+        }
     }
     
     public func log(start isStart: Bool) {
@@ -94,7 +99,9 @@ final class DCBatteryManager: NSObject {
             }
         }
         
-        DCBatteryNotifier.notify(withTitle: "\(startTime) - \(endTime) (\(timeDiff))", message: msg)
+        DispatchQueue.main.async {
+            DCBatteryNotifier.notify(withTitle: "\(startTime) - \(endTime) (\(timeDiff))", message: msg)
+        }
         
         let data: [String : Any] = [
             "startPercent" : startPercent,
