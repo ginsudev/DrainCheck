@@ -1,4 +1,0 @@
-module draincheck {
-    header "/Users/noah/Projects/New/Swift/draincheck/draincheck/.build/arm64-apple-macosx/debug/draincheck.build/draincheck-Swift.h"
-    requires objc
-}
