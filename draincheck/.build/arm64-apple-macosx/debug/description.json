@@ -1,0 +1,110 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.draincheck-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "importPath" : "/Users/noah/Projects/New/Swift/draincheck/draincheck/.build/arm64-apple-macosx/debug",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/noah/Projects/New/Swift/draincheck/draincheck/Sources/draincheck/DrainCheckBehaviourController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/noah/Projects/New/Swift/draincheck/draincheck/Sources/draincheck/RootListController.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/noah/Projects/New/Swift/draincheck/draincheck/.build/arm64-apple-macosx/debug/draincheckC.build/draincheck.m.o"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "draincheck",
+      "moduleOutputPath" : "/Users/noah/Projects/New/Swift/draincheck/draincheck/.build/arm64-apple-macosx/debug/draincheck.swiftmodule",
+      "objects" : [
+        "/Users/noah/Projects/New/Swift/draincheck/draincheck/.build/arm64-apple-macosx/debug/draincheck.build/DrainCheckBehaviourController.swift.o",
+        "/Users/noah/Projects/New/Swift/draincheck/draincheck/.build/arm64-apple-macosx/debug/draincheck.build/RootListController.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx10.13",
+        "-swift-version",
+        "5",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/Users/noah/Projects/New/Swift/draincheck/draincheck/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-g",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-Xcc",
+        "-fmodule-map-file=/Users/noah/Projects/New/Swift/draincheck/draincheck/Sources/draincheckC/include/module.modulemap",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/noah/Projects/New/Swift/draincheck/draincheck/Sources/draincheckC/include",
+        "-module-cache-path",
+        "/Users/noah/Projects/New/Swift/draincheck/draincheck/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/noah/Projects/New/Swift/draincheck/draincheck/.build/arm64-apple-macosx/debug/draincheck.build/draincheck-Swift.h",
+        "-F/Users/noah/theos/vendor/lib",
+        "-F/Users/noah/theos/lib",
+        "-I/Users/noah/theos/vendor/include",
+        "-I/Users/noah/theos/include",
+        "-target",
+        "arm64-apple-ios14.4",
+        "-sdk",
+        "/Users/noah/theos/sdks/iPhoneOS15.5.sdk",
+        "-resource-dir",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/swift",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib"
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/noah/Projects/New/Swift/draincheck/draincheck/.build/arm64-apple-macosx/debug/draincheck.build/DrainCheckBehaviourController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/noah/Projects/New/Swift/draincheck/draincheck/.build/arm64-apple-macosx/debug/draincheck.build/RootListController.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/noah/Projects/New/Swift/draincheck/draincheck/.build/arm64-apple-macosx/debug/draincheck.swiftmodule"
+        }
+      ],
+      "sources" : [
+        "/Users/noah/Projects/New/Swift/draincheck/draincheck/Sources/draincheck/DrainCheckBehaviourController.swift",
+        "/Users/noah/Projects/New/Swift/draincheck/draincheck/Sources/draincheck/RootListController.swift"
+      ],
+      "tempsPath" : "/Users/noah/Projects/New/Swift/draincheck/draincheck/.build/arm64-apple-macosx/debug/draincheck.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "testDiscoveryCommands" : {
+
+  }
+}

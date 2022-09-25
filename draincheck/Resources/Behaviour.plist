@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+            <key>cell</key>
+            <string>PSGroupCell</string>
+            <key>label</key>
+            <string>Automatic activation</string>
+            <key>footerText</key>
+            <string>Choose whether to automatically enable/disable DrainCheck for one of the events.</string>
+        </dict>
+		<dict>
+			<key>cell</key>
+			<string>PSLinkListCell</string>
+			<key>detail</key>
+			<string>draincheck.DrainCheckPickerController</string>
+			<key>default</key>
+			<integer>0</integer>
+			<key>defaults</key>
+			<string>com.ginsu.draincheck</string>
+			<key>label</key>
+			<string>Auto activation</string>
+			<key>key</key>
+			<string>autoActivation</string>
+			<key>validValues</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+				<integer>2</integer>
+			</array>
+			<key>validTitles</key>
+			<array>
+				<string>None</string>
+				<string>Do Not Disturb</string>
+				<string>Low Power Mode</string>
+			</array>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>Behaviour</string>
+</dict>
+</plist>

@@ -1,0 +1,9 @@
+Package: com.ginsu.draincheckcc
+Name: draincheckcc
+Depends: com.opa334.ccsupport
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome Control Center module!
+Maintainer: Ginsu
+Author: Ginsu
+Section: Control Center (Modules)

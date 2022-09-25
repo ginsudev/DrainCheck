@@ -1,0 +1,4 @@
+module DrainCheckC {
+    umbrella "."
+    export *
+}

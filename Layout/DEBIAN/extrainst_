@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo " Running uicache..."
+su mobile -c uicache &>/dev/null
+echo " Running uicache... Done."
+echo "[*] Follow on Twitter: @ginsudev."
+
+exit 0;
