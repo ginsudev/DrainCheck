@@ -11,7 +11,6 @@ struct LogList: View {
     @Environment(\.scenePhase) var scenePhase
 
     @State private var logs = DataHandler.fetchSortedLogs()
-    @State private var showingAlert = false
     @State private var logCount = 0
     
     var body: some View {
@@ -23,13 +22,19 @@ struct LogList: View {
                     }
                 }
             }
-            .navigationTitle("DrainCheck")
+            .navigationTitle("Logs")
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button {
-                        showingAlert = true
-                    } label: {
-                        Image(systemName: "trash")
+                ToolbarItemGroup(placement: .primaryAction) {
+                    Menu {
+                        Button(action: {
+                            DataHandler.removeLogs()
+                            refreshData()
+                        }) {
+                            Label("Delete all", systemImage: "trash")
+                        }
+                    }
+                    label: {
+                        Label("Delete all", systemImage: "trash")
                     }
                 }
             }
@@ -44,17 +49,6 @@ struct LogList: View {
                 refreshData()
             }
         })
-        .alert(isPresented: $showingAlert) {
-            Alert(
-                title: Text("Delete logs"),
-                message: Text("Are you sure you want to delete all drain logs?"),
-                primaryButton: .destructive(Text("Delete"), action: {
-                    DataHandler.removeLogs()
-                    refreshData()
-                }),
-                secondaryButton: .cancel(Text("Cancel"))
-            )
-        }
         .onChange(of: logCount) { _ in
             significantEventOccured()
         }

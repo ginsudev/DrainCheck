@@ -24,6 +24,10 @@ struct ResultsBox: View {
             .foregroundColor(colourForGain())
             
             ZStack(alignment: .center) {
+                Rectangle()
+                    .frame(width: .infinity, height: 6)
+                    .cornerRadius(3)
+                    .foregroundColor(colourForGain())
                 VisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
                     .frame(width: .infinity, height: 6)
                     .overlay(Rectangle()

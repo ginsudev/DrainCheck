@@ -61,7 +61,17 @@ struct LogRow: View {
         
         let endBlock = "End:\nBattery = \(log.endPercent)%\nTime = \(endTime)"
         
-        let overallBlock = "Overall:\nBattery difference = \(log.batteryDiff)%\nTime difference = \(log.timeDiff)"
+        var batteryDiffString: String {
+            let gainType = gainType()
+            
+            guard gainType != .none else {
+                return "\(log.batteryDiff)"
+            }
+            
+            return "\(gainType == .increase ? "+" : "-")\(log.batteryDiff)"
+        }
+        
+        let overallBlock = "Overall:\nBattery difference = \(batteryDiffString)%\nTime difference = \(log.timeDiff)"
     
         return "\(startBlock)\n\n\(endBlock)\n\n\(overallBlock)"
     }

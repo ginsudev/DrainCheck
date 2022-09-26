@@ -10,7 +10,10 @@
             <key>label</key>
             <string>Automatic activation</string>
             <key>footerText</key>
-            <string>Choose whether to automatically enable/disable DrainCheck for one of the events.</string>
+            <string>Choose whether to automatically enable/disable DrainCheck for one of the events.
+			
+
+Tip: You can also use Activator to enable/disable/toggle DrainCheck.</string>
         </dict>
 		<dict>
 			<key>cell</key>
