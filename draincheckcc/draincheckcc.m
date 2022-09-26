@@ -31,7 +31,7 @@
 }
 
 - (void)setSelected:(BOOL)selected {
-    [super setSelected:selected];
+    [super refreshState];
         
     if (selected) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"DrainCheck.isEnabled"];

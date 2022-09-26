@@ -12,9 +12,7 @@ struct StatBox: View {
     var time: String
     
     var body: some View {
-        ZStack {
-            VisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
-            
+        ZStack {            
             VStack {
                 Text("\(percentage)%")
                 Text(time)
@@ -25,10 +23,4 @@ struct StatBox: View {
         }
         .cornerRadius(10)
     }
-}
-
-struct VisualEffectView: UIViewRepresentable {
-    var effect: UIVisualEffect?
-    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView { UIVisualEffectView() }
-    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) { uiView.effect = effect }
 }

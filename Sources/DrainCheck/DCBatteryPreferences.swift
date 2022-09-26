@@ -22,10 +22,6 @@ final class DCBatteryPreferences: NSObject {
         }
         
         set {
-//            guard newValue != isEnabled else {
-//                return
-//            }
-            
             UserDefaults.standard.set(newValue, forKey: "DrainCheck.isEnabled")
             manager?.log(start: newValue)
         }

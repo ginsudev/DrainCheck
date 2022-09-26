@@ -26,15 +26,13 @@ struct ResultsBox: View {
             ZStack(alignment: .center) {
                 VisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
                     .frame(width: .infinity, height: 6)
+                    .overlay(Rectangle()
+                        .fill(
+                            RadialGradient(colors: [Color(UIColor.systemBackground),
+                                                    Color(UIColor.systemBackground).opacity(0.0)],
+                                           center: .center, startRadius: 20, endRadius: 45)
+                        ))
                     .cornerRadius(3)
-                
-                Rectangle()
-                    .fill(
-                        RadialGradient(colors: [Color(UIColor.systemBackground),
-                                                Color(UIColor.systemBackground).opacity(0.0)],
-                                       center: .center, startRadius: 20, endRadius: 45)
-                    )
-                    .frame(width: .infinity, height: 6)
                 
                 Text(elapsedTime)
             }
@@ -61,5 +59,17 @@ struct ResultsBox: View {
         case .decrease:
             return "arrow.down.circle"
         }
+    }
+}
+
+struct VisualEffectView: UIViewRepresentable {
+    var effect: UIVisualEffect?
+    
+    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView {
+        return UIVisualEffectView()
+    }
+    
+    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) {
+        uiView.effect = effect
     }
 }

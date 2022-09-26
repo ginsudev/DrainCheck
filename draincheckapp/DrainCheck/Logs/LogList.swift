@@ -10,8 +10,9 @@ import SwiftUI
 struct LogList: View {
     @Environment(\.scenePhase) var scenePhase
 
-    @State var logs = DataHandler.fetchSortedLogs()
+    @State private var logs = DataHandler.fetchSortedLogs()
     @State private var showingAlert = false
+    @State private var logCount = 0
     
     var body: some View {
         NavigationView {
@@ -54,9 +55,28 @@ struct LogList: View {
                 secondaryButton: .cancel(Text("Cancel"))
             )
         }
+        .onChange(of: logCount) { _ in
+            significantEventOccured()
+        }
     }
     
     private func refreshData() {
         logs = DataHandler.fetchSortedLogs()
+        
+        var count = 0
+        
+        for group in (logs ?? [LogGroup]()) {
+            count += group.logs.count
+        }
+        
+        logCount = count
+    }
+    
+    private func significantEventOccured() {
+        DispatchQueue.main.async {
+            let thud = UIImpactFeedbackGenerator(style: .light)
+            thud.prepare()
+            thud.impactOccurred()
+        }
     }
 }

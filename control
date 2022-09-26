@@ -2,8 +2,8 @@ Package: com.ginsu.draincheck
 Name: DrainCheck
 Version: 0.0.1
 Architecture: iphoneos-arm
-Description: An awesome Orion tweak!
+Description: Monitor your battery drain!
 Maintainer: Ginsu
 Author: Ginsu
 Section: Tweaks
-Depends: ${ORION}, firmware (>= 12.2)
+Depends: com.cokepokes.libnotifications, com.opa334.ccsupport, dev.theos.orion14, preferenceloader, com.ginsu.libgscommon (>= 1.2.4), firmware (>= 14.0)

@@ -3,7 +3,7 @@
     {
       "color" : {
         "platform" : "universal",
-        "reference" : "systemTealColor"
+        "reference" : "systemGreenColor"
       },
       "idiom" : "universal"
     }
@@ -11,5 +11,8 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "localizable" : true
   }
 }
