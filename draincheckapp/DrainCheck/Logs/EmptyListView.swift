@@ -17,5 +17,6 @@ struct EmptyListView: View {
         }
         .multilineTextAlignment(.center)
         .foregroundColor(Color(UIColor.secondaryLabel))
+        .padding()
     }
 }

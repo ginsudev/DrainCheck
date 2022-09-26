@@ -35,6 +35,7 @@ struct LogList: View {
                     }
                     label: {
                         Label("Delete all", systemImage: "trash")
+                            .imageScale(.large)
                     }
                 }
             }
@@ -44,6 +45,7 @@ struct LogList: View {
                 }
             })
         }
+        .navigationViewStyle(.stack)
         .onChange(of: scenePhase, perform: { newValue in
             if newValue == .active {
                 refreshData()

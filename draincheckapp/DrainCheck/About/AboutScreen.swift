@@ -16,17 +16,22 @@ struct AboutScreen: View {
             .navigationTitle("Credits")
             .listStyle(.insetGrouped)
         }
+        .navigationViewStyle(.stack)
     }
     
     private func creators() -> [Creator] {
         var arr = [Creator]()
         
-        let developer = Creator(name: "Noah", developerName: "Ginsu", twitterHandle: "ginsudev", role: "Developer")
+        arr.append(Creator(name: "Noah",
+                           developerName: "Ginsu",
+                           twitterHandle: "ginsudev",
+                           role: "Developer"))
         
-        let designer = Creator(name: "Baxter", developerName: "Bank5ia", twitterHandle: "bank5ia", role: "App & icon designer")
+        arr.append(Creator(name: "Baxter",
+                           developerName: "Bank5ia",
+                           twitterHandle: "bank5ia",
+                           role: "App & icon designer"))
         
-        arr.append(developer)
-        arr.append(designer)
         return arr
     }
 }
