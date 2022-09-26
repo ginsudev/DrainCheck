@@ -114,7 +114,8 @@ final class DCBatteryManager: NSObject {
             "endTime" : endTime,
             "batteryDiff" : batteryDiff,
             "timeDiff" : timeDiff,
-            "saveDate" : Date()
+            "saveDate" : preferences!.endTime,
+            "startDate" : preferences!.startTime
         ]
         
         preferences!.writeLog(dict: data)

@@ -79,7 +79,8 @@ final class DataHandler: NSObject {
                                     endTime: logDict["endTime"] as! String,
                                     batteryDiff: logDict["batteryDiff"] as! Int,
                                     timeDiff: logDict["timeDiff"] as! String,
-                                    saveDate: logDict["saveDate"] as! Date)
+                                    saveDate: logDict["saveDate"] as! Date,
+                                    startDate: logDict["startDate"] as? Date)
             
             translatedLogs.append(translatedLog)
         }

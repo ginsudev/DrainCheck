@@ -23,11 +23,47 @@ struct LogRow: View {
         }
         .alert(isPresented: $showingAlert) {
             Alert(
-                title: Text(DataHandler.getFormattedDate(fromDate: log.saveDate)),
-                message: Text("Start:\nBattery = \(log.startPercent)%\nTime = \(log.startTime)\n\nEnd:\nBattery = \(log.endPercent)%\nTime = \(log.endTime)\n\nOverall:\nBattery change = \(log.batteryDiff)%\nTime difference = \(log.timeDiff)"),
+                title: Text("Detailed Statistics"),
+                message: Text(detailedStats()),
                 dismissButton: .cancel(Text("Dismiss"))
             )
         }
+    }
+    
+    private func detailedStats() -> String {
+        var sameDates: Bool {
+            if let startDate = log.startDate {
+                return DataHandler.getFormattedDate(fromDate: startDate) == DataHandler.getFormattedDate(fromDate: log.saveDate)
+            }
+            
+            return true
+        }
+        
+        var startTime: String {
+            var str = ""
+            if !sameDates {
+                str += "\(DataHandler.getFormattedDate(fromDate: log.startDate!)) "
+            }
+            str += log.startTime
+            return str
+        }
+        
+        let startBlock = "Start:\nBattery = \(log.startPercent)%\nTime = \(startTime)"
+        
+        var endTime: String {
+            var str = ""
+            if !sameDates {
+                str += "\(DataHandler.getFormattedDate(fromDate: log.saveDate)) "
+            }
+            str += log.endTime
+            return str
+        }
+        
+        let endBlock = "End:\nBattery = \(log.endPercent)%\nTime = \(endTime)"
+        
+        let overallBlock = "Overall:\nBattery difference = \(log.batteryDiff)%\nTime difference = \(log.timeDiff)"
+    
+        return "\(startBlock)\n\n\(endBlock)\n\n\(overallBlock)"
     }
     
     private func gainType() -> Gain {

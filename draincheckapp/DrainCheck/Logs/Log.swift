@@ -17,6 +17,7 @@ struct Log: Identifiable {
     let batteryDiff: Int
     let timeDiff: String
     let saveDate: Date
+    let startDate: Date?
 }
 
 struct LogGroup: Identifiable {
