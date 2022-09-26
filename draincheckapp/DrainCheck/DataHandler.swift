@@ -37,7 +37,7 @@ final class DataHandler: NSObject {
         return sortedGroups
     }
     
-    private static func getFormattedDate(fromDate date: Date) -> String {
+    public static func getFormattedDate(fromDate date: Date) -> String {
         let locale = Locale.current
         let dateTemplate = "yyyy/MM/dd"
         

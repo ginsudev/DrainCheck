@@ -80,6 +80,10 @@ final class DCBatteryManager: NSObject {
     }
     
     private func presentBanner() {
+        guard preferences!.dictsAreValid() else {
+            return
+        }
+        
         let startPercent = preferences!.startPercent
         let endPercent = preferences!.endPercent
         
@@ -113,6 +117,8 @@ final class DCBatteryManager: NSObject {
             "saveDate" : Date()
         ]
         
-        preferences?.writeLog(dict: data)
+        preferences!.writeLog(dict: data)
+        preferences!.start = [String : Any]()
+        preferences!.end = [String : Any]()
     }
 }

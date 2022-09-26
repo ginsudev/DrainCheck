@@ -100,7 +100,11 @@ final class DCBatteryPreferences: NSObject {
     
     private func getSuitableKeyName(fromDate date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMddhhmmss"
+        formatter.dateFormat = "yyyyMMddHHmmss"
         return formatter.string(from: date)
+    }
+    
+    public func dictsAreValid() -> Bool {
+        return start.count > 0 && end.count > 0
     }
 }
