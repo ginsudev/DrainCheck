@@ -7,27 +7,33 @@
 
 import SwiftUI
 
-struct ProfilePicture: View {
+struct ProfilePicture: View
+{
     var twitterHandle: String
     @State var picture: UIImage = UIImage(systemName: "person.circle.fill")!
     
-    var body: some View {
+    var body: some View
+    {
         Image(uiImage: picture)
             .resizable()
             .frame(width: 50, height: 50)
             .clipShape(Circle())
             .shadow(radius: 10)
             .overlay(Circle().stroke(.white, lineWidth: 3))
-            .onAppear {
+            .onAppear
+        {
                 fetchImage()
             }
     }
     
-    func fetchImage() {
-        DispatchQueue.global().async {
-            if let url = URL(string: "https://unavatar.io/twitter/\(twitterHandle)?fallback=false") {
-                
-                guard let data = try? Data(contentsOf: url) else {
+    func fetchImage()
+    {
+        DispatchQueue.global().async
+        {
+            if let url = URL(string: "https://unavatar.io/twitter/\(twitterHandle)?fallback=false")
+            {
+                guard let data = try? Data(contentsOf: url) else
+                {
                     self.picture = UIImage(systemName: "person.circle.fill")!
                     return
                 }

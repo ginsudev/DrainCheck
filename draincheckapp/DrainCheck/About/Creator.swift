@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Creator: Identifiable {
+struct Creator: Identifiable
+{
     var id = UUID()
     var name: String
     var developerName: String

@@ -104,6 +104,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		4FCB3D9428E2BF51004220D4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4FEBF35C28DEB7FC0017EC32 /* DataHandler.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		4FEBF34228DEAFD10017EC32 = {
 			isa = PBXGroup;
 			children = (
@@ -123,12 +131,12 @@
 		4FEBF34D28DEAFD10017EC32 /* DrainCheck */ = {
 			isa = PBXGroup;
 			children = (
+				4FCB3D9428E2BF51004220D4 /* Core */,
 				4F4C2F7A28DFC98A004A961A /* Settings */,
 				4FEBF36028DED8080017EC32 /* Info.plist */,
 				4F4C2F6B28DF3423004A961A /* About */,
 				4F4C2F6228DF3423004A961A /* Logs */,
 				4FEBF34E28DEAFD10017EC32 /* DrainCheckApp.swift */,
-				4FEBF35C28DEB7FC0017EC32 /* DataHandler.swift */,
 				4FEBF35228DEAFD20017EC32 /* Assets.xcassets */,
 				4FEBF35428DEAFD20017EC32 /* Preview Content */,
 			);

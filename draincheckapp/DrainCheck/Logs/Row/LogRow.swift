@@ -7,21 +7,30 @@
 
 import SwiftUI
 
-struct LogRow: View {
+struct LogRow: View
+{
     var log: Log
     @State private var showingAlert = false
     
-    var body: some View {
-        HStack(alignment: .center) {
-            StatBox(percentage: log.startPercent, time: log.startTime)
+    var body: some View
+    {
+        HStack(alignment: .center)
+        {
+            StatBox(percentage: log.startPercent, time: DataHandler.getFormattedDate(fromDate: log.startDate, withFormatType: .time, localised: true))
+            
             ResultsBox(gain: gainType(), elapsedTime: log.timeDiff, battery: log.batteryDiff)
-            StatBox(percentage: log.endPercent, time: log.endTime)
+            
+            StatBox(percentage: log.endPercent, time: DataHandler.getFormattedDate(fromDate: log.saveDate, withFormatType: .time, localised: true))
         }
         .padding(.vertical, 5)
-        .onTapGesture {
+        
+        .onTapGesture
+        {
             showingAlert = true
         }
-        .alert(isPresented: $showingAlert) {
+        
+        .alert(isPresented: $showingAlert)
+        {
             Alert(
                 title: Text("Detailed Statistics"),
                 message: Text(detailedStats()),
@@ -30,41 +39,46 @@ struct LogRow: View {
         }
     }
     
-    private func detailedStats() -> String {
-        var sameDates: Bool {
-            if let startDate = log.startDate {
-                return DataHandler.getFormattedDate(fromDate: startDate) == DataHandler.getFormattedDate(fromDate: log.saveDate)
-            }
-            
-            return true
-        }
+    private func detailedStats() -> String
+    {
+        let sameDates = DataHandler.getFormattedDate(fromDate: log.startDate, withFormatType: .date, localised: true) == DataHandler.getFormattedDate(fromDate: log.saveDate, withFormatType: .date, localised: true)
         
-        var startTime: String {
+        var startTime: String
+        {
             var str = ""
-            if !sameDates {
-                str += "\(DataHandler.getFormattedDate(fromDate: log.startDate!)) "
+            
+            if !sameDates
+            {
+                str += "\(DataHandler.getFormattedDate(fromDate: log.startDate, withFormatType: .date, localised: true)) "
             }
-            str += log.startTime
+            str += DataHandler.getFormattedDate(fromDate: log.startDate, withFormatType: .timeWithSeconds, localised: true)
+            
             return str
         }
         
         let startBlock = "Start:\nBattery = \(log.startPercent)%\nTime = \(startTime)"
         
-        var endTime: String {
+        var endTime: String
+        {
             var str = ""
-            if !sameDates {
-                str += "\(DataHandler.getFormattedDate(fromDate: log.saveDate)) "
+            
+            if !sameDates
+            {
+                str += "\(DataHandler.getFormattedDate(fromDate: log.saveDate, withFormatType: .date, localised: true)) "
             }
-            str += log.endTime
+            str += DataHandler.getFormattedDate(fromDate: log.saveDate, withFormatType: .timeWithSeconds, localised: true)
+            
             return str
         }
         
         let endBlock = "End:\nBattery = \(log.endPercent)%\nTime = \(endTime)"
         
-        var batteryDiffString: String {
+        var batteryDiffString: String
+        {
             let gainType = gainType()
             
-            guard gainType != .none else {
+            guard gainType != .none else
+            {
                 return "\(log.batteryDiff)"
             }
             
@@ -76,12 +90,18 @@ struct LogRow: View {
         return "\(startBlock)\n\n\(endBlock)\n\n\(overallBlock)"
     }
     
-    private func gainType() -> Gain {
-        if log.startPercent == log.endPercent {
+    private func gainType() -> Gain
+    {
+        if log.startPercent == log.endPercent
+        {
             return .none
-        } else if log.startPercent > log.endPercent {
+        }
+        else if log.startPercent > log.endPercent
+        {
             return .decrease
-        } else {
+        }
+        else
+        {
             return .increase
         }
     }

@@ -7,10 +7,13 @@
 
 import DrainCheckC
 
-final class DCBatteryNotifier: NSObject {
+final class DCBatteryNotifier: NSObject
+{
     
-    public static func notify(withTitle title: String, message msg: String) {
-        guard let handle = dlopen("/usr/lib/libnotifications.dylib", RTLD_LAZY) else {
+    public static func notify(withTitle title: String, message msg: String)
+    {
+        guard let handle = dlopen("/usr/lib/libnotifications.dylib", RTLD_LAZY) else
+        {
             return
         }
         

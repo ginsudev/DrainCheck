@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-struct AboutScreen: View {
-    var body: some View {
-        NavigationView {
-            List(creators()) { creator in
+struct AboutScreen: View
+{
+    var body: some View
+    {
+        NavigationView
+        {
+            List(creators())
+            { creator in
                 Profile(creator: creator)
             }
             .navigationTitle("Credits")
@@ -19,7 +23,8 @@ struct AboutScreen: View {
         .navigationViewStyle(.stack)
     }
     
-    private func creators() -> [Creator] {
+    private func creators() -> [Creator]
+    {
         var arr = [Creator]()
         
         arr.append(Creator(name: "Noah",

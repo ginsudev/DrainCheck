@@ -7,11 +7,13 @@
 
 import Foundation
 
-@objc enum AutomaticActivationType: Int {
+@objc enum AutomaticActivationType: Int
+{
     case none = 0, dnd = 1, lpm = 2
 }
 
-struct Settings {
+struct Settings
+{
     static var isEnabled: Bool!
     static var automaticActivation: AutomaticActivationType!
 }

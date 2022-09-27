@@ -7,29 +7,48 @@
 
 import SwiftUI
 
-struct LogList: View {
+struct LogList: View
+{
     @Environment(\.scenePhase) var scenePhase
 
     @State private var logs = DataHandler.fetchSortedLogs()
     @State private var logCount = 0
     
-    var body: some View {
-        NavigationView {
-            List(logs ?? [LogGroup]()) { group in
-                Section(header: Text(group.date)) {
-                    ForEach(group.logs) { log in
+    var body: some View
+    {
+        NavigationView
+        {
+            List(logs ?? [LogGroup]())
+            { group in
+                Section(header: Text(group.date))
+                {
+                    ForEach(group.logs)
+                    { log in
                         LogRow(log: log)
+                    }
+                    
+                    .onDelete
+                    { item in
+                        let key = DataHandler.getKey(forLog: group.logs[item.first ?? 0])
+                        DataHandler.removeLog(withKey: key)
+                        refreshData()
                     }
                 }
             }
+            
             .navigationTitle("Logs")
-            .toolbar {
-                ToolbarItemGroup(placement: .primaryAction) {
-                    Menu {
+            
+            .toolbar
+            {
+                ToolbarItemGroup(placement: .primaryAction)
+                {
+                    Menu
+                    {
                         Button(action: {
                             DataHandler.removeLogs()
                             refreshData()
-                        }) {
+                        })
+                        {
                             Label("Delete all", systemImage: "trash")
                         }
                     }
@@ -40,14 +59,16 @@ struct LogList: View {
                 }
             }
             .overlay(Group {
-                if (logs ?? [LogGroup]()).isEmpty {
+                if (logs ?? [LogGroup]()).isEmpty
+                {
                     EmptyListView()
                 }
             })
         }
         .navigationViewStyle(.stack)
         .onChange(of: scenePhase, perform: { newValue in
-            if newValue == .active {
+            if newValue == .active
+            {
                 refreshData()
             }
         })
@@ -56,20 +77,23 @@ struct LogList: View {
         }
     }
     
-    private func refreshData() {
+    private func refreshData()
+    {
         logs = DataHandler.fetchSortedLogs()
-        
         var count = 0
         
-        for group in (logs ?? [LogGroup]()) {
+        for group in (logs ?? [LogGroup]())
+        {
             count += group.logs.count
         }
         
         logCount = count
     }
     
-    private func significantEventOccured() {
-        DispatchQueue.main.async {
+    private func significantEventOccured()
+    {
+        DispatchQueue.main.async
+        {
             let thud = UIImpactFeedbackGenerator(style: .light)
             thud.prepare()
             thud.impactOccurred()

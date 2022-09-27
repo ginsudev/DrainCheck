@@ -8,11 +8,16 @@
 import UIKit
 import Preferences
 
-class DrainCheckPickerController: PSListItemsController {
-    override func tableViewStyle() -> UITableView.Style {
-        if #available(iOS 13.0, *) {
+class DrainCheckPickerController: PSListItemsController
+{
+    override func tableViewStyle() -> UITableView.Style
+    {
+        if #available(iOS 13.0, *)
+        {
             return .insetGrouped
-        } else {
+        }
+        else
+        {
             return .grouped
         }
     }

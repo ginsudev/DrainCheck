@@ -7,34 +7,44 @@
 
 import SwiftUI
 
-enum Gain {
+enum Gain
+{
     case increase, none, decrease
 }
 
-struct ResultsBox: View {
+struct ResultsBox: View
+{
     var gain: Gain
     var elapsedTime: String
     var battery: Int
     
-    var body: some View {
-        VStack {
-            HStack {
+    var body: some View
+    {
+        VStack
+        {
+            HStack
+            {
                 Text(Image(systemName: imageNameForGain())) + Text(" \(battery)%")
             }
             .foregroundColor(colourForGain())
             
-            ZStack(alignment: .center) {
+            ZStack(alignment: .center)
+            {
                 Rectangle()
                     .frame(width: .infinity, height: 6)
                     .cornerRadius(3)
                     .foregroundColor(colourForGain())
+                
                 VisualEffectView(effect: UIBlurEffect(style: .systemThinMaterial))
                     .frame(width: .infinity, height: 6)
-                    .overlay(Rectangle()
+                    .overlay(
+                        Rectangle()
                         .fill(
                             RadialGradient(colors: [Color(UIColor.systemBackground),
                                                     Color(UIColor.systemBackground).opacity(0.0)],
-                                           center: .center, startRadius: 20, endRadius: 45)
+                                           center: .center,
+                                           startRadius: 20,
+                                           endRadius: 45)
                         ))
                     .cornerRadius(3)
                 
@@ -43,8 +53,10 @@ struct ResultsBox: View {
         }
     }
     
-    private func colourForGain() -> Color {
-        switch gain {
+    private func colourForGain() -> Color
+    {
+        switch gain
+        {
         case .increase:
             return .green
         case .none:
@@ -54,8 +66,10 @@ struct ResultsBox: View {
         }
     }
     
-    private func imageNameForGain() -> String {
-        switch gain {
+    private func imageNameForGain() -> String
+    {
+        switch gain
+        {
         case .increase:
             return "arrow.up.circle"
         case .none:
@@ -66,14 +80,17 @@ struct ResultsBox: View {
     }
 }
 
-struct VisualEffectView: UIViewRepresentable {
+struct VisualEffectView: UIViewRepresentable
+{
     var effect: UIVisualEffect?
     
-    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView {
+    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView
+    {
         return UIVisualEffectView()
     }
     
-    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) {
+    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>)
+    {
         uiView.effect = effect
     }
 }

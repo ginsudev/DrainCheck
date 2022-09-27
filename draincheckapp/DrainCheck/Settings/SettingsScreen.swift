@@ -7,12 +7,15 @@
 
 import SwiftUI
 
-struct SettingsScreen: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> DrainCheckPrefsViewController {
+struct SettingsScreen: UIViewControllerRepresentable
+{
+    func makeUIViewController(context: Context) -> DrainCheckPrefsViewController
+    {
         return DrainCheckPrefsViewController()
     }
 
-    func updateUIViewController(_ uiViewController: DrainCheckPrefsViewController, context: Context) {
-    
+    func updateUIViewController(_ uiViewController: DrainCheckPrefsViewController, context: Context)
+    {
+        //Not used
     }
 }

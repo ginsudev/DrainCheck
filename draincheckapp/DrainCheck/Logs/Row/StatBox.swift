@@ -7,13 +7,17 @@
 
 import SwiftUI
 
-struct StatBox: View {
+struct StatBox: View
+{
     var percentage: Int
     var time: String
     
-    var body: some View {
-        ZStack {            
-            VStack {
+    var body: some View
+    {
+        ZStack
+        {
+            VStack
+            {
                 Text("\(percentage)%")
                 Text(time)
                     .foregroundColor(.secondary)

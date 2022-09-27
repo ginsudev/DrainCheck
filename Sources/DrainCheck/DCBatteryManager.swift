@@ -7,12 +7,14 @@
 
 import DrainCheckC
 
-final class DCBatteryManager: NSObject {
+final class DCBatteryManager: NSObject
+{
     public static let sharedInstance = DCBatteryManager()
-    private var results: DCBatteryResults?
+    public var results: DCBatteryResults?
     private var preferences: DCBatteryPreferences?
     
-    private override init() {
+    private override init()
+    {
         super.init()
         
         NotificationCenter.default.addObserver(self,
@@ -25,7 +27,8 @@ final class DCBatteryManager: NSObject {
                                                name: NSNotification.Name("DrainCheck.Notification.Disable"),
                                                object: nil)
         
-        if Settings.automaticActivation == .lpm {
+        if Settings.automaticActivation == .lpm
+        {
             NotificationCenter.default.addObserver(self,
                                                    selector: #selector(didRecieveStatusUpdateNotification(_:)),
                                                    name: Notification.Name.NSProcessInfoPowerStateDidChange,
@@ -36,13 +39,17 @@ final class DCBatteryManager: NSObject {
         self.preferences = DCBatteryPreferences(manager: self)
     }
     
-    @objc private func didRecieveStatusUpdateNotification(_ notification: NSNotification) {
-        var enabled: Bool {
-            if notification.name.rawValue == "DrainCheck.Notification.Enable" {
+    @objc private func didRecieveStatusUpdateNotification(_ notification: NSNotification)
+    {
+        var enabled: Bool
+        {
+            if notification.name.rawValue == "DrainCheck.Notification.Enable"
+            {
                 return true
             }
             
-            if notification.name == Notification.Name.NSProcessInfoPowerStateDidChange {
+            if notification.name == Notification.Name.NSProcessInfoPowerStateDidChange
+            {
                 return ProcessInfo.processInfo.isLowPowerModeEnabled
             }
             
@@ -51,19 +58,24 @@ final class DCBatteryManager: NSObject {
         
         preferences?.isEnabled = enabled
 
-        DispatchQueue.main.async {
-            if let moduleInstance = CCUIModuleInstanceManager.sharedInstance().instance(forModuleIdentifier: "com.ginsu.draincheckcc") {
+        DispatchQueue.main.async
+        {
+            if let moduleInstance = CCUIModuleInstanceManager.sharedInstance().instance(forModuleIdentifier: "com.ginsu.draincheckcc")
+            {
                 moduleInstance.module.refreshState()
             }
         }
     }
     
-    public func log(start isStart: Bool) {
-        guard let results = results else {
+    public func log(start isStart: Bool)
+    {
+        guard let results = results else
+        {
             return
         }
         
-        guard let preferences = preferences else {
+        guard let preferences = preferences else
+        {
             return
         }
         
@@ -71,47 +83,57 @@ final class DCBatteryManager: NSObject {
         dict["time"] = Date()
         dict["battery"] = results.batteryPercent
         
-        if isStart {
+        if isStart
+        {
             preferences.start = dict
-        } else {
+        }
+        else
+        {
             preferences.end = dict
             presentBanner()
         }
     }
     
-    private func presentBanner() {
-        guard preferences!.dictsAreValid() else {
+    private func presentBanner()
+    {
+        guard preferences!.dictsAreValid() else
+        {
             return
         }
         
         let startPercent = preferences!.startPercent
         let endPercent = preferences!.endPercent
         
-        let startTime = results!.getFormattedTime(fromDate: preferences!.startTime)
-        let endTime = results!.getFormattedTime(fromDate: preferences!.endTime)
+        let startTime = results!.getFormattedDate(fromDate: preferences!.startTime, withFormatType: .time, localised: true)
+        let endTime = results!.getFormattedDate(fromDate: preferences!.endTime, withFormatType: .time, localised: true)
         
         let batteryDiff = results!.getCalculatedBatteryDifference(start: startPercent, end: endPercent)
         let timeDiff = results!.getCalculatedTimeDifference(start: preferences!.startTime, end: preferences!.endTime)
         
-        var msg: String {
-            if endPercent < startPercent {
+        var msg: String
+        {
+            if endPercent < startPercent
+            {
                 return "Battery dropped from \(startPercent)% to \(endPercent)%, a total loss of \(batteryDiff)%."
-            } else if endPercent > startPercent {
+            }
+            else if endPercent > startPercent
+            {
                 return "Battery increased from \(startPercent)% to \(endPercent), a total gain of \(batteryDiff)%."
-            } else {
+            }
+            else
+            {
                 return "There was no drain during this time period."
             }
         }
         
-        DispatchQueue.main.async {
+        DispatchQueue.main.async
+        {
             DCBatteryNotifier.notify(withTitle: "\(startTime) - \(endTime) (\(timeDiff))", message: msg)
         }
         
         let data: [String : Any] = [
             "startPercent" : startPercent,
             "endPercent" : endPercent,
-            "startTime" : startTime,
-            "endTime" : endTime,
             "batteryDiff" : batteryDiff,
             "timeDiff" : timeDiff,
             "saveDate" : preferences!.endTime,

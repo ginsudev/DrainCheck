@@ -7,9 +7,12 @@
 
 import SwiftUI
 
-struct EmptyListView: View {
-    var body: some View {
-        VStack(alignment: .center) {
+struct EmptyListView: View
+{
+    var body: some View
+    {
+        VStack(alignment: .center)
+        {
             Text("🚫")
                 .font(.system(size: 50))
                 .padding()

@@ -8,19 +8,19 @@
 import Foundation
 import SwiftUI
 
-struct Log: Identifiable {
+struct Log: Identifiable
+{
     var id = UUID()
     let startPercent: Int
     let endPercent: Int
-    let startTime: String
-    let endTime: String
     let batteryDiff: Int
     let timeDiff: String
     let saveDate: Date
-    let startDate: Date?
+    let startDate: Date
 }
 
-struct LogGroup: Identifiable {
+struct LogGroup: Identifiable
+{
     var id = UUID()
     var logs = [Log]()
     var date: String

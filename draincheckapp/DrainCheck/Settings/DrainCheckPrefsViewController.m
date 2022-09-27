@@ -10,19 +10,22 @@
 
 @implementation DrainCheckPrefsViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
     NSBundle *bundle = [NSBundle bundleWithPath:@"/Library/PreferenceBundles/draincheck.bundle"];
     
     [bundle load];
     
-    if ([bundle isLoaded]) {
+    if ([bundle isLoaded])
+    {
         self.root = [objc_getClass("draincheck.RootListController") new];
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
     [super viewDidAppear:animated];
     self.viewControllers = @[self.root];
 }

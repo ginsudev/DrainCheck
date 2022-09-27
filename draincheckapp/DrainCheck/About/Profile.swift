@@ -7,16 +7,21 @@
 
 import SwiftUI
 
-struct Profile: View {
+struct Profile: View
+{
     @Environment(\.openURL) var openURL
     var creator: Creator
     
-    var body: some View {
-        VStack {
-            HStack {
+    var body: some View
+    {
+        VStack
+        {
+            HStack
+            {
                 ProfilePicture(twitterHandle: creator.twitterHandle)
                 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading)
+                {
                     Text("\(creator.name) (\(creator.developerName))")
                         .font(.title2)
                     Text(creator.role)
@@ -30,8 +35,11 @@ struct Profile: View {
                     .foregroundColor(Color(UIColor.secondaryLabel))
             }
         }
+        
         .padding(.vertical)
-        .onTapGesture {
+        
+        .onTapGesture
+        {
             openURL(URL(string: "https://twitter.com/\(creator.twitterHandle)")!)
         }
     }
